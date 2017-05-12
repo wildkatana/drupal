@@ -5,7 +5,7 @@ machine:
     - docker
 dependencies:
   override:
-    - sudo pip install docker-compose
+    - sudo pip install docker-compose==1.8.0
     - docker-compose up -d mariadb
     - docker-compose up -d nginx
 test:
@@ -19,4 +19,3 @@ test:
     - docker-compose run --user 82 php vendor/bin/phpunit -c core core/tests/Drupal/Tests/Core/Password/PasswordHashingTest.php
     - docker-compose run --user 82 php vendor/bin/phpunit -c core core/tests/Drupal/KernelTests/Component/Utility/SafeMarkupKernelTest.php
     - docker-compose run --user 82 php vendor/bin/phpunit -c core core/tests/Drupal/FunctionalTests/Breadcrumb/Breadcrumb404Test.php
-#Test
